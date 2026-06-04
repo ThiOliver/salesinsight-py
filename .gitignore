@@ -1,0 +1,17 @@
+# Ambiente Virtual
+.venv/
+venv/
+ENV/
+
+# Caches do Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Arquivos do VS Code e Sistema
+.vscode/
+.DS_Store
+Thumbs.db
