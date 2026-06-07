@@ -1,6 +1,6 @@
 id_venda,data_venda,cliente,produto,categoria,regiao,quantidade,preco_unitario
 1,2024-05-20,Cliente_035,Mouse,Periféricos,Sudeste,2.0,102.9
-2,2024-02-17,Cliente_042,  Teclado,Periféricos,Norte,7.0,214.88
+2,2024-02-17,Cliente_042, Teclado,Periféricos,Norte,7.0,214.88
 3,2024-05-22,Cliente_022,Monitor,Computadores,Nordeste,4.0,
 4,2024-06-21,Cliente_017,Smartphone,Celulares,Sudeste,4.0,2501.76
 5,2024-07-12,Cliente_024,Mouse,Periféricos,Norte,8.0,121.3
@@ -23,7 +23,7 @@ id_venda,data_venda,cliente,produto,categoria,regiao,quantidade,preco_unitario
 22,2024-01-28,Cliente_022,Monitor,Computadores,Sudeste,7.0,1188.13
 23,2024-08-17,Cliente_005,Smartphone,Celulares,Centro-Oeste,4.0,1995.54
 24,2024-11-29,Cliente_016,Headset,Periféricos,Sul,9.0,307.78
-25,2024-07-24,Cliente_030,  Monitor,Computadores,Nordeste,8.0,1193.29
+25,2024-07-24,Cliente_030, Monitor,Computadores,Nordeste,8.0,1193.29
 26,2024-09-06,Cliente_035,Monitor,Computadores,Sudeste,9.0,1258.27
 27,2024-10-26,Cliente_033,Mouse,Periféricos,Sudeste,6.0,104.06
 28,2024-02-04,Cliente_016,Headset,Periféricos,Norte,3.0,304.69
@@ -57,7 +57,7 @@ id_venda,data_venda,cliente,produto,categoria,regiao,quantidade,preco_unitario
 56,2024-07-15,Cliente_035,Notebook,Computadores,Centro-Oeste,3.0,3133.37
 57,DATA INVÁLIDA,Cliente_049,Monitor,Computadores,Norte,1.0,1094.46
 58,2024-06-29,Cliente_035,Monitor,Computadores,Norte,8.0,1022.12
-59,2024-09-06,Cliente_044,  Headset,Periféricos,Centro-Oeste,10.0,391.77
+59,2024-09-06,Cliente_044, Headset,Periféricos,Centro-Oeste,10.0,391.77
 60,2024-03-06,Cliente_043,Mouse,Periféricos,Sudeste,3.0,132.26
 61,2024-08-24,Cliente_022,Notebook,Computadores,Centro-Oeste,7.0,3117.48
 62,2024-02-11,Cliente_015,Tablet,Celulares,Sudeste,7.0,1666.23
@@ -69,7 +69,7 @@ id_venda,data_venda,cliente,produto,categoria,regiao,quantidade,preco_unitario
 68,2024-08-10,Cliente_035,Tablet,Celulares,Centro-Oeste,8.0,1911.95
 69,2024-10-30,Cliente_029,Monitor,Computadores,Sul,7.0,1317.26
 70,2024-12-08,Cliente_014,Headset,Periféricos,Nordeste,8.0,
-71,2024-11-01,Cliente_006,  Headset,Periféricos,Sul,5.0,333.24
+71,2024-11-01,Cliente_006, Headset,Periféricos,Sul,5.0,333.24
 72,2024-05-03,Cliente_006,Mouse,Periféricos,Nordeste,7.0,119.59
 73,2024-06-05,Cliente_048,Smartphone,Celulares,Norte,7.0,2326.58
 74,2024-05-18,Cliente_048,Tablet,Celulares,Norte,6.0,1909.54
@@ -118,7 +118,7 @@ id_venda,data_venda,cliente,produto,categoria,regiao,quantidade,preco_unitario
 117,2024-07-08,Cliente_048,Teclado,Periféricos,Sul,3.0,241.65
 118,2024-11-11,Cliente_029,Monitor,Computadores,Centro-Oeste,2.0,1320.13
 119,2024-12-17,Cliente_018,Smartphone,Celulares,Sul,6.0,1935.57
-120,2024-04-18,Cliente_016,  Notebook,Computadores,Sul,8.0,3071.26
+120,2024-04-18,Cliente_016, Notebook,Computadores,Sul,8.0,3071.26
 121,2024-10-10,Cliente_010,Headset,Periféricos,Norte,10.0,319.05
 122,2024-03-15,Cliente_002,Notebook,Computadores,Sul,5.0,3876.33
 123,2024-05-01,Cliente_027,Notebook,Computadores,Norte,6.0,
@@ -131,7 +131,7 @@ id_venda,data_venda,cliente,produto,categoria,regiao,quantidade,preco_unitario
 130,2024-10-11,Cliente_027,Mouse,Periféricos,Nordeste,6.0,131.22
 131,2024-01-27,Cliente_014,Headset,Periféricos,Sul,7.0,388.65
 132,2024-02-25,Cliente_015,Mouse,Periféricos,Centro-Oeste,8.0,110.07
-133,2024-11-14,Cliente_045,  Headset,Periféricos,Nordeste,9.0,399.83
+133,2024-11-14,Cliente_045, Headset,Periféricos,Nordeste,9.0,399.83
 134,2024-06-07,Cliente_043,Notebook,Computadores,Centro-Oeste,3.0,3261.93
 135,2024-01-16,Cliente_011,Notebook,Computadores,Nordeste,3.0,3753.02
 136,2024-10-17,Cliente_004,Tablet,Celulares,Sudeste,6.0,1949.49
