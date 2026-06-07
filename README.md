@@ -96,4 +96,4 @@ Neste projeto, os dados são lidos de um arquivo local CSV. Em um cenário real 
 *(Duração máxima de 5 minutos)*
 
 ## 🗺️ Link do Quadro Kanban
-[Acesse o quadro do GitHub Projects](LINK_DO_KANBAN_AQUI)
+[Acesse o quadro do GitHub Projects](https://github.com/users/ThiOliver/projects/2/views/1)
