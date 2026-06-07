@@ -2,74 +2,75 @@
 
 ## 👥 Integrantes do Grupo
 - **Thiago Olivera** (Líder/Repositório)
-- **Rian Gomes** 
+- **Rian Gomes**
 - **Adilson Costa**
 
-## 📋 Divisão de Tarefas (Mapeamento de Requisitos)
+## 📋 Divisão de Tarefas
 
 | Integrante | Responsabilidade Técnica |
 |------------|-------------------------|
-| **Thiago Olivera** | **RF01, RF02, RF03, RF04, RF05** – Geração, inspeção, limpeza e transformação dos dados (Tratamento de nulos, Regex e Datetime). |
-| **Rian Gomes** | **RF06, RF07,RF08, RF09, RF10** – Análise agregada, estatísticas matemáticas com NumPy, funções lambda, persistência em arquivos e expressões regulares. |
-| **Adilson Costa** | **RF11, RF12, RF13, RF14** – Geração de gráficos, arquitetura de Classes (POO), herança e super(), e o *Main Entry Point* do pipeline. |
+| **Thiago Olivera** | **RF01, RF02, RF03, RF04, RF05** – Cria ou carrega o dataset de vendas, inspeciona e descreve os dados, limpa e trata os dados, cria colunas derivadas com transformações e calcula métricas agregadas com groupby. |
+| **Rian Gomes** | **RF06, RF07, RF08, RF09, RF10** – Segmenta clientes por nível de gasto, calcula estatísticas com NumPy, cria visualizações com Matplotlib e Seaborn, cria uma classe para o pipeline e usa herança. |
+| **Adilson Costa** | **RF11, RF12, RF13, RF14** – Usa funções lambda e funções de ordem superior, lê e escreve arquivos CSV e JSON, usa expressões regulares para limpeza de dados e executa o pipeline completo como ponto de entrada. |
 
 ## 💻 Sobre o Projeto
-O **SalesInsight PY** é um pipeline de engenharia e análise preditiva de dados de vendas desenvolvido de ponta a ponta em Python. O sistema é capaz de simular a entrada de dados comerciais brutos, tratá-los aplicando regras complexas de negócio, segmentar a carteira de clientes com Inteligência Artificial preditiva rudimentar e gerar projeções de tendências.
+O **SalesInsight PY** é um pipeline completo de análise e visualização de dados de vendas desenvolvido em Python. O sistema lê, limpa, transforma e visualiza um dataset de vendas, gerando métricas, segmentações de clientes e projeções simples de tendência para os próximos períodos.
 
 ## 🔍 O que o Sistema Analisa
-- **Desempenho Financeiro:** Receita total, ticket médio e volume de vendas segmentados por mês e trimestre.
-- **Curva de Produtos:** Classificação dos principais produtos e categorias geradoras de receita.
-- **Geografia Comercial:** Densidade e performance de conversão por região de atuação.
-- **Fidelização:** Segmentação comportamental de clientes por faixas de gasto absoluto (**Bronze, Prata, Ouro**).
-- **Predição:** Modelagem matemática e projeção simples de tendências para os períodos subsequentes.
-- **Persistência de Dados:** Exportação automatizada de relatórios estruturados nos formatos flat (`CSV`) e semiestruturados (`JSON`).
+- **Receita ao longo do tempo:** Receita total e volume de vendas por mês e trimestre.
+- **Produtos e categorias:** Classificação dos top 5 produtos e categorias por receita.
+- **Desempenho regional:** Receita total e ticket médio por região de atuação.
+- **Segmentação de clientes:** Classificação por faixas de gasto total (**Bronze, Prata, Ouro**).
+- **Projeção de tendência:** Estimativa de receita para os próximos meses usando média móvel simples.
+- **Exportação de resultados:** Relatórios em CSV e estatísticas em JSON gerados automaticamente.
 
-## 🎯 Objetivos de Aprendizagem (Módulo 01)
-O desenvolvimento deste projeto consolida as seguintes competências em IA e Análise Preditiva:
-- **Lógica e Estruturas:** Manipulação de coleções, controle de fluxo e iterações nativas.
-- **Avançado em Python:** Funções com múltiplos retornos, tratamentos de exceção e funções lambda.
-- **IO de Dados:** Persistência robusta com os módulos nativos `json`, `csv` e `os`.
-- **Tratamento de Strings e Tempo:** Uso de expressões regulares (`re`) e manipulação temporal com `datetime`.
-- **Análise Estatística Extensiva:** Operações vetorizadas, mascaramento e broadcasting com `NumPy`.
-- **Data Wrangling:** Agregações complexas com `groupby`, junções, filtros dinâmicos e tratamento de dados ausentes via `Pandas`.
-- **Data Visualization:** Storytelling visual focado em negócios através de gráficos com `Matplotlib` e `Seaborn`.
-- **Paradigma POO:** Arquitetura limpa utilizando abstração, encapsulamento, herança e polimorfismo (`super()`).
-- **Versionamento e Gestão:** Ciclo de branches via GitFlow simplificado e governança ágil com quadro Kanban.
+## 🎯 Objetivo
+Praticar os principais conceitos do Módulo 01 de IA para Análise Preditiva:
+- Lógica de programação com Python, variáveis, tipos de dados e operadores.
+- Condicionais (`if`, `elif`, `else`) e estruturas de repetição (`for`, `while`).
+- Funções com parâmetros, retorno e funções `lambda`.
+- Funções de ordem superior (função que recebe outra função como argumento).
+- Leitura e escrita de arquivos CSV e JSON.
+- Módulo `datetime` para manipulação e extração de datas.
+- Expressões regulares com o módulo `re` para limpeza de strings.
+- Pandas: DataFrames, limpeza, `groupby`, filtros e transformações condicionais.
+- NumPy: arrays, operações vetorizadas, broadcasting e `np.select`.
+- Matplotlib e Seaborn: gráficos de linha, barras e boxplot, com exportação em PNG.
+- Classes com construtor (`__init__`), atributos, métodos, herança e `super()`.
+- GitHub com branches descritivas, commits e GitFlow simplificado.
+- Kanban para organização e acompanhamento do projeto.
 
 ## 🚀 Como Executar o Projeto
 
-### Opção A: No Google Colab (Ambiente em Nuvem)
-1. Faça o upload do script principal `salesinsight.py` e do arquivo `vendas.csv` para a raiz do seu ambiente Colab.
-2. Crie uma nova célula de código e execute:
+### Opção A: No Google Colab (recomendado)
+1. Faça o upload do arquivo `salesinsight.py` para o Colab.
+2. Execute em uma célula:
    ```bash
    !python salesinsight.py
    ```
 
-### Opção B: Localmente (VS Code no Linux/Windows)
-1. Certifique-se de que possui o Python 3.10 ou superior instalado.
-2. Ative o seu ambiente virtual integrado:
-   ```bash
-   source .venv/bin/activate
-   ```
-3. Instale todas as dependências requeridas pelo ecossistema:
+### Opção B: Localmente com VS Code
+1. Certifique-se de ter o Python 3.10+ instalado.
+2. Instale as dependências:
    ```bash
    pip install pandas numpy matplotlib seaborn
    ```
-4. Execute o pipeline de execução completa no seu terminal:
+3. Execute no terminal:
    ```bash
    python salesinsight.py
    ```
 
-## 📂 Estrutura Arquitetural do Diretório
+O Google Colab já possui Pandas, NumPy, Matplotlib e Seaborn instalados.
+
+## 📂 Estrutura do Projeto
 ```text
 salesinsight-py/
-├── .gitignore                   # Regras de exclusão do Git (.venv protegida)
-├── README.md                    # Documentação oficial do projeto
-├── salesinsight.py              # Arquivo principal do pipeline unificado
-├── vendas.csv                   # Dataset bruto gerado/carregado
+├── README.md                    # Documentação do projeto
+├── salesinsight.py              # Arquivo principal do pipeline
+├── vendas.csv                   # Dataset de vendas (gerado pelo código)
 ├── planejamento/
-│   └── tarefas-kanban.md        # Documentação interna das sprints locais
-└── outputs/                     # Artefatos gerados automaticamente pelo sistema
+│   └── tarefas-kanban.md        # Quadro Kanban do projeto
+└── outputs/                     # Gerado automaticamente ao rodar o pipeline
     ├── relatorio_resumo.csv
     ├── metricas_por_mes.csv
     ├── segmentacao_clientes.csv
@@ -80,21 +81,19 @@ salesinsight-py/
         └── distribuicao_regioes.png
 ```
 
-## 🛠️ Stack Tecnológica
-- **Linguagem Base:** Python 3.12+
-- **IDEs e Ambientes:** VS Code / Google Colab
-- **Processamento de Dados:** Pandas & NumPy
-- **Plotagem Gráfica:** Matplotlib & Seaborn
-- **Versionamento:** Git + GitHub CLI (`gh`)
-- **Gestão Ágil:** GitHub Projects (Kanban)
+## 🛠️ Ferramentas Utilizadas
+- **Linguagem:** Python 3.10+
+- **Ambiente de desenvolvimento:** VS Code / Google Colab
+- **Bibliotecas:** `pandas`, `numpy`, `matplotlib`, `seaborn`, `re`, `json`, `datetime`, `os`, `random`
+- **Versionamento:** Git + GitHub
+- **Gestão de tarefas:** GitHub Projects (Kanban)
 
-## 🌐 Integração com a Web (Arquitetura Cliente-Servidor)
-Neste pipeline de escopo isolado, os dados de entrada são extraídos de arquivos locais em formato `CSV`. No entanto, em um cenário real de produção de Engenharia de Dados, as informações residem em bancos de dados distribuídos ou serviços terceiros acessíveis via **APIs REST**.
-
-O script Python atuaria como o **Cliente**, efetuando requisições assíncronas do tipo **HTTP GET** direcionadas à URL de um **Servidor**. O servidor processaria a requisição de segurança, realizaria a consulta no banco de dados e devolveria uma carga útil estruturada em **JSON**, seguindo rigidamente o modelo cliente-servidor. Bibliotecas de requisições web como a `requests` permitem emular essa ingestão automática em pipelines profissionais.
+## 🌐 Como a Internet Funciona (Contexto do Projeto)
+Neste projeto, os dados são lidos de um arquivo local CSV. Em um cenário real de produção, esses dados poderiam vir de uma **API REST** — o cliente (script Python) faria uma requisição HTTP GET para um servidor, que processaria e retornaria os dados em JSON, seguindo a **arquitetura cliente-servidor**. Bibliotecas como `requests` permitem consumir essas APIs diretamente no Python.
 
 ## 📺 Vídeo de Demonstração
-[Clique aqui para assistir ao vídeo do projeto no YouTube/Google Drive](LINK_DO_VIDEO_AQUI) *(Duração máxima de 5 minutos)*
+[Clique aqui para assistir ao vídeo do projeto](LINK_DO_VIDEO_AQUI)
+*(Duração máxima de 5 minutos)*
 
-## 🗺️ Link do Quadro Kanban (Acompanhamento Ágil)
-[Acesse o nosso painel do GitHub Projects](LINK_DO_KANBAN_AQUI)
+## 🗺️ Link do Quadro Kanban
+[Acesse o quadro do GitHub Projects](LINK_DO_KANBAN_AQUI)
