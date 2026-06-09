@@ -495,37 +495,6 @@ class AnalisadorComProjecao(AnalisadorDeVendas):
         for p in self.projecoes:
             print(f"   Mês {p['mes']:02d}: R$ {p['receita_projetada']:,.2f}")
 
-
-if __name__ == "__main__":
-    # RF01 - Gerar dataset
-    df_bruto = gerar_dataset_vendas()
-    df_bruto.to_csv("vendas.csv", index=False)
-    print(f"Dataset gerado com {len(df_bruto)} registros.")
-
-    # RF02 - Inspecionar
-    inspecionar_dados(df_bruto)
-
-    # RF03 - Limpar
-    df_limpo, relatorio = limpar_dados(df_bruto.copy())
-
-    # RF04 - Colunas derivadas
-    df_limpo = criar_colunas_derivadas(df_limpo)
-
-    # RF05 - Métricas
-    metricas = calcular_metricas(df_limpo)
-
-    # RF06 - Segmentação de clientes
-    clientes = segmentar_clientes(df_limpo)
-
-    # RF07 - Estatísticas com NumPy
-    stats = calcular_estatisticas_numpy(df_limpo)
-
-    # RF08 - Visualizações
-    gerar_visualizacoes(df_limpo, metricas)
-
-    print("\n[CONCLUÍDO] RF01 ao RF10 finalizados com sucesso!")
-
-
 # =============================================================
 #  SALESINSIGHT PY - Parte 3: RF11 ao RF14
 #  Responsável: [Adilson Costa]
