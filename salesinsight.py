@@ -30,7 +30,8 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import seaborn as sns
-
+import re
+import json
 
 # ==============================================================
 # RF01 – Criar ou Carregar o Dataset de Vendas
@@ -531,3 +532,141 @@ if __name__ == "__main__":
 #  Lambda/ordem superior, CSV/JSON, regex, main
 # =============================================================
 
+# ##############################################################################
+# PARTE DO ADILSON — RF11 a RF14
+# ##############################################################################
+
+# ==============================================================
+# RF11 – Usar Funções Lambda e Funções de Ordem Superior
+# ==============================================================
+
+def processar_coluna(df, coluna, funcao_transformacao):
+    """
+    Aplica uma função de transformação a uma coluna do DataFrame.
+    Demonstra o uso de funções como argumentos (higher-order function /
+    callback).
+    """
+    df[f"{coluna}_transformado"] = df[coluna].apply(funcao_transformacao)
+    print(f"  Coluna '{coluna}_transformado' criada com sucesso.")
+    return df
+
+
+# ==============================================================
+# RF12 – Ler e Escrever Arquivos (CSV e JSON)
+# ==============================================================
+
+def exportar_resultados(metricas, clientes, stats_numpy):
+    """Exporta resultados em CSV e JSON."""
+    os.makedirs("outputs", exist_ok=True)
+
+    # Exportar CSV com métricas por mês
+    caminho_csv = "outputs/metricas_por_mes.csv"
+    metricas["por_mes"].to_csv(caminho_csv, index=False,
+                               encoding="utf-8-sig")
+    print(f"  CSV exportado: {caminho_csv}")
+
+    # Exportar segmentação de clientes em CSV
+    caminho_clientes = "outputs/segmentacao_clientes.csv"
+    clientes.to_csv(caminho_clientes, index=False, encoding="utf-8-sig")
+    print(f"  CSV exportado: {caminho_clientes}")
+
+    # Exportar estatísticas gerais em JSON
+    caminho_json = "outputs/estatisticas_gerais.json"
+    stats_serializaveis = {k: round(float(v), 2) for k, v in
+                           stats_numpy.items()}
+    with open(caminho_json, "w", encoding="utf-8") as f:
+        json.dump(stats_serializaveis, f, indent=4, ensure_ascii=False)
+    print(f"  JSON exportado: {caminho_json}")
+
+    # Ler e exibir o JSON exportado para confirmar
+    with open(caminho_json, "r", encoding="utf-8") as f:
+        dados_lidos = json.load(f)
+    print(f"\n  Conteúdo do JSON exportado:\n  "
+          f"{json.dumps(dados_lidos, indent=2)}")
+
+
+# ==============================================================
+# RF13 – Usar Expressões Regulares para Limpeza de Dados
+# ==============================================================
+
+def limpar_strings_com_regex(df):
+    """
+    Usa expressões regulares para limpeza de colunas de texto.
+    Exemplos: remover caracteres especiais, padronizar formatos.
+    """
+    # 1. Remover caracteres não alfanuméricos do nome do cliente
+    #    (exceto underline e espaço)
+    df["cliente_limpo"] = df["cliente"].apply(
+        lambda s: re.sub(r"[^a-zA-Z0-9_ ]", "", str(s)).strip()
+    )
+
+    # 2. Identificar registros com padrão de ID inválido
+    #    (deve ser "Cliente_XXX")
+    padrao_cliente = re.compile(r"^Cliente_\d{3}$")
+    df["cliente_valido"] = df["cliente_limpo"].apply(
+        lambda s: bool(padrao_cliente.match(s))
+    )
+
+    n_invalidos = (~df["cliente_valido"]).sum()
+    print(f"\n=== LIMPEZA COM REGEX ===")
+    print(f"  Clientes com formato inválido encontrados: {n_invalidos}")
+    print(f"  Amostra de clientes limpos: "
+          f"{df['cliente_limpo'].head(5).tolist()}")
+
+    return df
+
+
+# ==============================================================
+# RF14 – Executar o Pipeline Completo (Ponto de Entrada)
+# ==============================================================
+
+def main():
+    """
+    Função principal: executa o pipeline completo do SalesInsight PY.
+    """
+    print("\n" + "="*60)
+    print("  SALESINSIGHT PY – Pipeline de Análise de Dados de Vendas")
+    print("="*60)
+
+    # Etapa 0: Gerar dataset (se necessário)
+    if not os.path.exists("vendas.csv"):
+        print("\n[INFO] Gerando dataset sintético...")
+        df_gerado = gerar_dataset_vendas(n_registros=200)
+        df_gerado.to_csv("vendas.csv", index=False)
+
+    # Etapa 1 a 6: Pipeline via classe com herança
+    analisador = AnalisadorComProjecao("vendas.csv", meses_projecao=3)
+    (analisador
+        .carregar()
+        .limpar()
+        .transformar()
+        .analisar()
+        .projetar_tendencia()
+        .visualizar()
+        .exportar_relatorio()
+    )
+
+    # Etapa extra: limpeza com regex
+    analisador.df_limpo = limpar_strings_com_regex(analisador.df_limpo)
+
+    # Etapa extra: funções lambda e higher-order function
+    analisador.df_limpo = processar_coluna(
+        analisador.df_limpo, "receita_total", lambda x: round(x / 1000, 2)
+    )
+    analisador.df_limpo = processar_coluna(
+        analisador.df_limpo, "quantidade", lambda x: "Alto" if x > 5 else "Baixo"
+    )
+
+    # Etapa extra: exportação JSON
+    stats = calcular_estatisticas_numpy(analisador.df_limpo)
+    exportar_resultados(analisador.metricas, analisador.clientes, stats)
+
+    # Resumo final
+    analisador.resumo()
+    analisador.exibir_projecao_detalhada()
+
+    print("\n[CONCLUÍDO] Pipeline finalizado com sucesso!")
+
+
+if __name__ == "__main__":
+    main()
