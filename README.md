@@ -92,7 +92,7 @@ salesinsight-py/
 Neste projeto, os dados são lidos de um arquivo local CSV. Em um cenário real de produção, esses dados poderiam vir de uma **API REST** — o cliente (script Python) faria uma requisição HTTP GET para um servidor, que processaria e retornaria os dados em JSON, seguindo a **arquitetura cliente-servidor**. Bibliotecas como `requests` permitem consumir essas APIs diretamente no Python.
 
 ## 📺 Vídeo de Demonstração
-[Clique aqui para assistir ao vídeo do projeto](LINK_DO_VIDEO_AQUI)
+[Clique aqui para assistir ao vídeo do projeto](https://drive.google.com/drive/folders/1HN6dJk4jQpTAvd4yLjvU0tfdmmaM-vYE?usp=drive_link)
 *(Duração máxima de 5 minutos)*
 
 ## 🗺️ Link do Quadro Kanban
